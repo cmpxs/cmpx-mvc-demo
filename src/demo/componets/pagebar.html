@@ -1,0 +1,36 @@
+  {{if this.type == 0}}
+    <ul class="am-pagination am-fr admin-content-pagination">
+      <li>
+        <a href="javascript:void(0);" click="{{@this.setPage(this.curPage-1)}}">«</a>
+      </li>
+      {{for item in this.pages}}
+      <li class="{{this.curPage == item ? 'am-active' : ''}}">
+        <a href="javascript:void(0);"
+          click="{{@this.curPage = item;this.$update()}}">{{:item}}</a>
+      </li>
+      {{/for}}
+      <li>
+        <a href="javascript:void(0);" click="{{@this.setPage(this.curPage+1)}}">»</a>
+      </li>
+    </ul>
+  {{else}}
+    <div class="am-cf">
+      <p class="am-fl">共 {{this.total}} 条记录</p>
+      <div class="am-fr">
+        <ul class="am-pagination">
+          <li>
+            <a href="javascript:void(0);" click="{{@this.setPage(this.curPage-1)}}">«</a>
+          </li>
+          {{for item in this.pages}}
+          <li class="{{this.curPage == item ? 'am-active' : ''}}">
+            <a href="javascript:void(0);"
+              click="{{@this.curPage = item;this.$update()}}">{{:item}}</a>
+          </li>
+          {{/for}}
+          <li>
+            <a href="javascript:void(0);" click="{{@this.setPage(this.curPage+1)}}">»</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+   {{/if}}
